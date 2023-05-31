@@ -8,5 +8,24 @@
     <input type="text" formControlName="password" placeholder="Password">
     <input type="text" formControlName="cPassword" placeholder="confirm Password">
 
-    <input type="submit" value="Submit" (click)="onSubmit()">
+    <input type="Submit" value="Submit" (click)="onSubmit()">
 </form>
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>userName</th>
+        <th>Password</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of allData;let i =index ">
+            <td>{{items.name}}</td>
+            <td>{{items.email}}</td>
+            <td>{{items.phone}}</td>
+            <td>{{items.userName}}</td>
+            <td>{{items.password}}</td>
+        </tr>
+    </tbody>
+</table>
