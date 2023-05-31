@@ -1,16 +1,65 @@
-<p>home works!</p>
 
-<form [formGroup]="form">
-    <input type="text" formControlName="name" placeholder="Name">
-    <input type="text" formControlName="email" placeholder="Email">
-    <input type="text" formControlName="phone" placeholder="Phone">
-    <input type="text" formControlName="userName" placeholder="userName">
-    <input type="text" formControlName="password" placeholder="Password">
-    <input type="text" formControlName="cPassword" placeholder="confirm Password">
+<div class="container">
+    <h1>Basic Registraion with Node API</h1>
+ <div class="main">
+    <form [formGroup]="form">
+       <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 left">
+            <input type="text" formControlName="name" placeholder="Name">
+        <div *ngIf="form.controls['name'].invalid && (form.controls['name'].touched || form.controls['name'].dirty || submitted)">
+            <label *ngIf="form.controls['name'].errors" class="danger">Name is required</label>
+        </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 right">
+            <input type="text" formControlName="email" placeholder="Email">
+            <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched || submitted)">
+                <label for="" class="danger" *ngIf="form.controls['email'].errors">Email is required</label>
+            </div>
+        </div>
+       </div>
+       
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 left">
+                <input type="text" formControlName="phone" placeholder="Phone">
+                <div *ngIf="form.controls['phone'].invalid && (form.controls['phone'].touched || form.controls['phone'].dirty || submitted)">
+                    <label for="" *ngIf="form.controls['phone'].errors"class="danger">Phone is required</label>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 right">
+                <input type="text" formControlName="userName" placeholder="userName">
+                <div *ngIf="form.controls['userName'].invalid && (form.controls['userName'].touched || form.controls['userName'].dirty || submitted)">
+                    <label for="" class="danger"*ngIf="form.controls['userName'].errors">
+                        UserName is required
+                    </label>
+                </div>
+            </div>
+        </div>
 
-    <input type="Submit" value="Submit" (click)="onSubmit()">
-</form>
+       <div class="row">
+        <div class="col-md-6 col-sm-6 col-lg-6 left">
+            <input type="text" formControlName="password" placeholder="Password">
+            <div *ngIf="form.controls['password'].invalid && (form.controls['password'].touched || form.controls['password'].dirty || submitted)">
+                <label for="" class="danger"*ngIf="form.controls['password'].errors">Password is required</label>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 right">
+            <input type="text" formControlName="cPassword" placeholder="confirm Password">
+            <div *ngIf="form.controls['cPassword'].invalid && (form.controls['cPassword'].touched || form.controls['cPassword'].dirty || submitted)">
+                <label for=""class="danger" *ngIf="form.controls['cPassword'].errors">confirm Password is required</label>
+            </div>
+        </div>
+       </div>
+        
+       <div class="row button">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <input type="Submit" value="Submit" (click)="onSubmit()">
+        </div>
+       </div>
+       
+    </form>
+ </div>
 
+ 
 <table>
     <thead>
         <th>Name</th>
@@ -29,3 +78,5 @@
         </tr>
     </tbody>
 </table>
+</div>
+
