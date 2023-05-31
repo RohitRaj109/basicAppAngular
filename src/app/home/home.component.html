@@ -1,0 +1,12 @@
+<p>home works!</p>
+
+<form [formGroup]="form">
+    <input type="text" formControlName="name" placeholder="Name">
+    <input type="text" formControlName="email" placeholder="Email">
+    <input type="text" formControlName="phone" placeholder="Phone">
+    <input type="text" formControlName="userName" placeholder="userName">
+    <input type="text" formControlName="password" placeholder="Password">
+    <input type="text" formControlName="cPassword" placeholder="confirm Password">
+
+    <input type="submit" value="Submit" (click)="onSubmit()">
+</form>
