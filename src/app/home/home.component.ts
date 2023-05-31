@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ServerService } from '../provider/server.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit{
 form:FormGroup= this.myForm()
   allData:any=[];
 
-constructor(private fb:FormBuilder){
+constructor(private fb:FormBuilder,public server:ServerService){
   
 }
 myForm(){
@@ -39,9 +40,17 @@ get f(){
       email: this.form.value.email,
       phone: this.form.value.phone,
       userName:this.form.value.userName,
-      password:this.form.value.password
+      password:this.form.value.password,
+    
     }
     this.allData.push(data)
+    this.server.postData('/register',data).subscribe((res:any)=>{
+     
+      if(res.success ==true){
+        console.log(res)
+        alert(res.message)
+      }
+    })
     console.log(data)
   }
 }
